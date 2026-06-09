@@ -19,14 +19,15 @@ function Pelicula({titulo}){
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const lista = ['Interstellar', 'Inception', 'Dunkirk', 'Batman']
 
   return (
     <div>
       <h1>Mis Peliculas Favoritas</h1>
-      <Pelicula titulo="El Padrino"/>
-      <Pelicula titulo="El Padrino II"/>
-      <Pelicula titulo="El Padrino III"/>
+      {lista.map((pelicula) => (
+        <Pelicula key={pelicula} titulo={pelicula} />
+      ))}
+
     </div>
   )
 }
