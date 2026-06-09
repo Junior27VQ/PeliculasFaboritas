@@ -19,11 +19,27 @@ function Pelicula({titulo}){
 }
 
 function App() {
-  const lista = ['Interstellar', 'Inception', 'Dunkirk', 'Batman']
+  const [lista, setLista] = useState(['Interstellar', 'Inception', 'Dunkirk', 'Batman'])
+  const [nuevaPelicula, setNuevaPelicula] = useState('')
+
+  const agregarPelicula = () => {
+    if (nuevaPelicula.trim() !== '') {
+      setLista([...lista, nuevaPelicula])
+      setNuevaPelicula('')
+    }
+  }
 
   return (
     <div>
       <h1>Mis Peliculas Favoritas</h1>
+      <input
+        type="text"
+        placeholder="Agregar nueva película"
+        value={nuevaPelicula}
+        onChange={(e) => setNuevaPelicula(e.target.value)}
+        style={{flex: 1, padding: '10px'}}
+      />
+      <button onClick={agregarPelicula}>Agregar</button>
       {lista.map((pelicula) => (
         <Pelicula key={pelicula} titulo={pelicula} />
       ))}
