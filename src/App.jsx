@@ -5,13 +5,15 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function Pelicula({titulo}){
+  const [esFavorita, setEsFavorita] = useState(false)
   return(
     <div style={{border: '1px solid black',
                   margin: '10px',
                   padding: '10px',
-                  borderRadius: '5px'
-    }}>
-      <h2>{titulo}</h2>
+                  borderRadius: '5px',
+                  cursor: 'pointer'
+    }}onClick={() => setEsFavorita(!esFavorita)}>
+      <h2>{titulo}{esFavorita ? '⭐' : ''}</h2> 
     </div>
   )
 }
