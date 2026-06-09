@@ -12,14 +12,14 @@ function Pelicula({titulo}){
                   padding: '10px',
                   borderRadius: '5px',
                   cursor: 'pointer'
-    }}onClick={() => setEsFavorita(!esFavorita)}>
-      <h2>{titulo}{esFavorita ? '⭐' : ''}</h2> 
+    }}onClick={() => setEsFavorita(!esFavorita)}> 
+      <h3>{titulo} {esFavorita ? "⭐" : ""}</h3> 
     </div>
   )
-}
+} 
 
 function App() {
-  const [lista, setLista] = useState(['Interstellar', 'Inception', 'Dunkirk', 'Batman'])
+  const [lista, setLista] = useState(['Interstellar', 'Inception', 'Dunkirk', 'Batman' ])
   const [nuevaPelicula, setNuevaPelicula] = useState('')
 
   const agregarPelicula = () => {
@@ -40,8 +40,8 @@ function App() {
         style={{flex: 1, padding: '10px'}}
       />
       <button onClick={agregarPelicula}>Agregar</button>
-      {lista.map((pelicula) => (
-        <Pelicula key={pelicula} titulo={pelicula} />
+      {lista.map((pelicula, indice) => (
+        <Pelicula key={indice} titulo={pelicula} />
       ))}
 
     </div>
